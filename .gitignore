@@ -7,4 +7,3 @@
 *.db
 .idea/
 target/
-src/main/resources/game_of_letters_database.db
