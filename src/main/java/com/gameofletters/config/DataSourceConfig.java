@@ -1,4 +1,4 @@
-package com.gameofletters.repository;
+package com.gameofletters.config;
 
 import com.gameofletters.properties.ApplicationProperties;
 import org.sqlite.SQLiteDataSource;

@@ -1,5 +1,6 @@
 package com.gameofletters.repository;
 
+import com.gameofletters.config.DataSourceConfig;
 import org.apache.commons.dbutils.QueryRunner;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -7,8 +8,6 @@ import org.junit.Test;
 
 import javax.sql.DataSource;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class EightLetterWordRepositoryTest {
 
@@ -33,9 +32,9 @@ public class EightLetterWordRepositoryTest {
     }
 
     @Test
-    public void shouldFetchBatchOfWordsFromDatabase() throws Exception {
+    public void shouldFetchAllWordsFromDatabase() throws Exception {
         EightLetterWordRepository repo = new EightLetterWordRepository();
-        List<String> wordList = repo.fetchBatchOfWords(0);
+        List<String> wordList = repo.fetchAllWords();
         assert wordList.size() == 5;
     }
 }

@@ -60,6 +60,16 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <profileId>${project.activeProfiles[0].id}</profileId>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <profiles>
@@ -69,19 +79,19 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <flyway.config.file>src/main/resources/flyway-config/flyway.properties</flyway.config.file>
+                <flyway.config.file>src/main/resources/application.properties</flyway.config.file>
             </properties>
         </profile>
         <profile>
             <id>test</id>
             <properties>
-                <flyway.config.file>src/main/resources/flyway-config/flyway-test.properties</flyway.config.file>
+                <flyway.config.file>src/main/resources/application-test.properties</flyway.config.file>
             </properties>
         </profile>
         <profile>
             <id>prod</id>
             <properties>
-                <flyway.config.file>src/main/resources/flyway-config/flyway-prod.properties</flyway.config.file>
+                <flyway.config.file>src/main/resources/application-prod.properties</flyway.config.file>
             </properties>
         </profile>
     </profiles>
