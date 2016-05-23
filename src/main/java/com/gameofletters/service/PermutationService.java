@@ -40,7 +40,7 @@ public class PermutationService {
 
 
     public Set<String> permute(String word, int startLength, int endLength) {
-        return IntStream.rangeClosed(startLength, endLength)
+        return IntStream.rangeClosed(startLength, endLength).parallel()
                 .mapToObj(length -> permute(word, length))
                 .reduce((accWordList, wordList) -> {accWordList.addAll(wordList); return accWordList;})
                 .get();
